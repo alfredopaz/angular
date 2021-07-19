@@ -8,9 +8,8 @@
     <div *ngIf="showHobbies" class="component2">
       <h3>hobbies:</h3>
       <ul>
-        <li *ngFor = "let hobby of hobbies"> 
-          <app-hobby [nameHobby]="hobby"></app-hobby>
-        </li>
+        <app-hobby *ngFor="let hobby of hobbies" [nameHobby]="hobby">
+        </app-hobby>
       </ul>
     </div>
     <form (submit)="newHobby(hobby)">
