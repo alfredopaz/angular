@@ -30,4 +30,11 @@ export class AppComponent {
     hobby.value = '';
     return false
   }
+  deleteHobby(hobby: any){
+    for(let i =0; i < this.hobbies.length; i++){
+      if(hobby == this.hobbies[i]){
+        this.hobbies.splice(i, 1)
+      }
+    }
+  }
 }

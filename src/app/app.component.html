@@ -8,8 +8,10 @@
     <div *ngIf="showHobbies" class="component2">
       <h3>hobbies:</h3>
       <ul>
-        <app-hobby *ngFor="let hobby of hobbies" [nameHobby]="hobby">
-        </app-hobby>
+        <li *ngFor="let hobby of hobbies">
+          {{hobby}} 
+          <button (click)="deleteHobby(hobby)">Borrar Hobby</button>
+        </li>
       </ul>
     </div>
     <form (submit)="newHobby(hobby)">
