@@ -12,5 +12,7 @@ export class HobbyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  sayEnjoy(nameHobby: any){
+    alert("Disfrute de " + nameHobby)
+  }
 }
