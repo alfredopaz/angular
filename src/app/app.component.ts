@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service'
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent {
   hobbies : string[]
   showHobbies : boolean
 
-  constructor(){
+  constructor(private dataService: DataService){
     console.log("Constructor working ... ")
     this.title = 'my-dream-app';
     this.name = 'Alfredo Paz'
@@ -21,6 +23,9 @@ export class AppComponent {
     this.webpage = 'http://www.unsa.edu.pe'
     this.hobbies = ["programar", "astronomía", "peliculas"]
     this.showHobbies = false
+    this.dataService.getData().subscribe(data => {
+      console.log(data)
+    })
   }
   toggleHobbies(){
     this.showHobbies = !this.showHobbies
