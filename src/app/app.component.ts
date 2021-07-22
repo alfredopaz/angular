@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service'
 import { HttpClient } from '@angular/common/http'
+import { Post } from './Post'
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   webpage : string
   hobbies : string[]
   showHobbies : boolean
+  posts : Post[]
 
   constructor(private dataService: DataService){
     console.log("Constructor working ... ")
@@ -23,8 +25,9 @@ export class AppComponent {
     this.webpage = 'http://www.unsa.edu.pe'
     this.hobbies = ["programar", "astronomía", "peliculas"]
     this.showHobbies = false
+    this.posts = []
     this.dataService.getData().subscribe(data => {
-      console.log(data)
+      this.posts = data
     })
   }
   toggleHobbies(){
